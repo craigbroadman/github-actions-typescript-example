@@ -46,12 +46,12 @@ function run() {
             const ms = core.getInput('milliseconds');
             core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
             core.debug(new Date().toTimeString());
-            yield wait_1.wait(parseInt(ms, 9));
+            yield wait_1.wait(parseInt(ms, 8));
             core.debug(new Date().toTimeString());
             core.setOutput('time', new Date().toTimeString());
         }
         catch (error) {
-            core.setFailed('ERROR: ' + error.message);
+            core.setFailed(error.message);
         }
     });
 }
